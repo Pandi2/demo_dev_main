@@ -12,7 +12,7 @@
                     <li style="padding: 1%;">
                         <a href="tes">123</a>
                     </li>
-                     <li style="padding: 1%;">
+                    <li style="padding: 1%;">
                         <a href="tes">123</a>
                     </li>
                 </ul>
@@ -20,7 +20,7 @@
         </div>
     </div>
     <!-- {{charList | json }} -->
-    <div class="col-md-8">
+    <div class="col-md-9">
         <div class="card">
             <div style="padding: 2%;">
                 <table class="table table-bordered">
@@ -35,7 +35,7 @@
                     <tbody>
                       <tr *ngFor="let character_data of charList; index as i">
                         <th scope="row">{{i+1}}</th>
-                        <td> <a [routerLink]="['/character', character_data.id]"></a>{{character_data.name}}</td>
+                        <td> <a   href="/character/{{  character_data.id }}" [routerLink]="['/character', character_data.id]">{{character_data.name}}</a></td>
                         <td>{{character_data.species_details.name}}</td>
                         <td>{{character_data.birth_year}}</td>
                       </tr>

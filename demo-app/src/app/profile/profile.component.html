@@ -1,3 +1,6 @@
+
+<a href="/home">home</a>
+
 <div class="row">
     <div class="col-md-3">
         <div class="card">
@@ -25,6 +28,67 @@
     <div class="col-md-8">
         <div class="card">
             <div style="padding: 2%;">
+               <div>
+                <h5>Films</h5>
+                <div  *ngFor="let data of filmList">
+
+
+                    <div class="card" style= "text-align: left;padding-left: 15%;">
+                   
+                        <span>Name: {{data.title}}, </span><br>
+                        <span>episode Id: {{data.episode_id}}, </span><br>
+                        <span>Opening crawl: {{data.opening_crawl}}, </span><br>                     
+                        <span>Director: {{data.director}} </span><br>
+                        <span>producer: {{data.producer}}</span><br>
+                        <span>release date: {{data.release_date}} </span><br>                        
+                        <span>Created: {{data.created}} </span><br>
+                        <span>Edited: {{data.edited}}</span><br>
+                    </div>
+                </div>
+               </div>
+               <div>
+                <h5>Vehicles</h5>
+                <div  *ngFor="let data of vehicleList">
+                    <div class="card" style="text-align: left;padding-left: 15%;">
+                   
+                        <span>Name: {{data.name}}, </span><br>
+                        <span>Model: {{data.model}}, </span><br>
+                        <span>manufacturer: {{data.manufacturer}}, </span><br>
+                     
+                        <span>Cost In credits: {{data.cost_in_credits}} </span><br>
+                        <span>Max Atmosphering Speed: {{data.max_atmosphering_speed}}</span><br>
+                        <span>Crew: {{data.crew}} </span><br>
+                        <span>passengers: {{data.passengers}}, </span><br>
+                        <span>cargo capacity: {{data.cargo_capacity}} </span><br>
+                        <span>vehicl Class: {{data.vehicle_class}} </span><br>
+                        <span>Created: {{data.created}} </span><br>
+                        <span>Edited: {{data.edited}}</span><br>
+                    </div>
+                </div>
+               
+               </div>
+               <div>
+                <h5>STARSHIPS</h5>
+
+                <div  *ngFor="let data of startShipsList">
+                    <div class="card" style="text-align: left;padding-left: 15%;">
+                   
+                        <span>Name: {{data.name}}, </span><br>
+                        <span>Model: {{data.model}}, </span><br>
+                        <span>manufacturer: {{data.manufacturer}}, </span><br>
+                     
+                        <span>Cost In credits: {{data.cost_in_credits}} </span><br>
+                        <span>Max Atmosphering Speed: {{data.max_atmosphering_speed}}</span><br>
+                        <span>Crew: {{data.crew}} </span><br>
+                        <span>passengers: {{data.passengers}}, </span><br>
+                        <span>cargo capacity: {{data.cargo_capacity}} </span><br>
+                        <span>vehicl Class: {{data.vehicle_class}} </span><br>
+                        <span>Created: {{data.created}} </span><br>
+                        <span>Edited: {{data.edited}}</span><br>
+                    </div>
+                </div>
+               </div>
+               
                
             </div>
         </div>

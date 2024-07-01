@@ -17,7 +17,24 @@ export class CharService {
     return this.http.get(`https://swapi.dev/api/people/${id}`);
   }
 
+
   getcharspecies(id:string){
     return this.http.get(`https://swapi.dev/api/species/${id}`);
   }
+
+  getVehiclesDetails(url:string){
+    return this.http.get(url);
+  }
+  getfilms(url:string){
+    return this.http.get(url);
+  }
+  getStarshipss(url:string){
+    return this.http.get(url);
+  }
 }
+
+
+
+
+
+
