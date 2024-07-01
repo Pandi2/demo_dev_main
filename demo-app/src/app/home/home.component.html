@@ -1,0 +1,63 @@
+<div class="row">
+    <div class="col-md-3">
+        <div class="card">
+            <div style="padding: 2%;">
+                <ul style="padding-left: 0;">
+                    <li style="padding: 1%;">
+                        <a href="tes">123</a>
+                    </li>
+                    <li style="padding: 1%;">
+                        <a href="tes">123</a>
+                    </li>
+                    <li style="padding: 1%;">
+                        <a href="tes">123</a>
+                    </li>
+                     <li style="padding: 1%;">
+                        <a href="tes">123</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- {{charList | json }} -->
+    <div class="col-md-8">
+        <div class="card">
+            <div style="padding: 2%;">
+                <table class="table table-bordered">
+                    <thead>
+                      <tr>
+                        <th scope="col">S No</th>
+                        <th scope="col">Character Name</th>
+                        <th scope="col">Species</th>
+                        <th scope="col">Birth Year</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let character_data of charList; index as i">
+                        <th scope="row">{{i+1}}</th>
+                        <td> <a [routerLink]="['/character', character_data.id]"></a>{{character_data.name}}</td>
+                        <td>{{character_data.species}}</td>
+                        <td>{{character_data.birth_year}}</td>
+                      </tr>
+                      
+                    </tbody>
+                  </table>
+                  <nav style="float: right;" aria-label="...">
+                    <ul class="pagination">
+                      <li class="page-item disabled">
+                        <span class="page-link">Previous</span>
+                      </li>
+                      <li class="page-item"><a class="page-link" href="#">1</a></li>
+                      <li class="page-item active" aria-current="page">
+                        <span class="page-link">2</span>
+                      </li>
+                      <li class="page-item"><a class="page-link" href="#">3</a></li>
+                      <li class="page-item">
+                        <a class="page-link" href="#">Next</a>
+                      </li>
+                    </ul>
+                  </nav>
+            </div>
+        </div>
+    </div>
+</div>
