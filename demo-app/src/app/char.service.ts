@@ -9,8 +9,8 @@ export class CharService {
 
   constructor(private http: HttpClient) { }
 
-  getAllCharactors(){
-    return this.http.get('https://swapi.dev/api/films/1/');
+  getAllCharactors(page:any){
+    return this.http.get(`https://swapi.dev/api/people/?page=${page}`);
   }
 
   getcharctorsDetails(id:string){
