@@ -141,6 +141,8 @@ export class HomeComponent {
     else{
       this.filteredCharacters = []
     }
+
+    // if()
     
 
   }
