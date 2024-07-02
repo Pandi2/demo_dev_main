@@ -1,13 +1,13 @@
-<div class="row">
+<div class="row pt-4">
     <div class="col-md-3">
         <div class="card">
-            <div style="padding: 2%;">
+            <div style="padding: 6%;">
                 <div class="row">
-                    <h6 style="color: green;">Filters</h6>
+                    <h6 style="color: green;text-align: center;">Filters</h6>
                     <div class="pb-3">
                       <select [(ngModel)]="selectedOptionMovie" (change)="onOptionSelected($event)">
                         <option  value="">Movie Name</option>
-                        <option *ngFor="let movie of filmList" value="movie.url">{{movie.title}}</option>
+                        <option *ngFor="let movie of filmList" value="{{movie.url}}">{{movie.title}}</option>
                       </select>
                     </div>
                    
@@ -16,7 +16,7 @@
                     <div class="pb-3">
                       <select [(ngModel)]="selectedOptionSpecies" (change)="onOptionSelected($event)" >
                         <option  value="">Species</option>
-                        <option *ngFor="let species of speciesList"  value="species.url">{{species.name}}</option>
+                        <option *ngFor="let species of speciesList"  value="{{species.url}}">{{species.name}}</option>
                       </select>
                     </div>
                     
@@ -25,7 +25,7 @@
                     <div class="pb-3">
                       <select [(ngModel)]="selectedOptionVehicle" (change)="onOptionSelected($event)" >
                         <option  value="">Vehicle</option>
-                        <option *ngFor="let vehicle of vehicleList" value="vehicle.url">{{vehicle.name}}</option>
+                        <option *ngFor="let vehicle of vehicleList" value="{{vehicle.url}}">{{vehicle.name}}</option>
                       </select>
                     </div>                
                   </div>
@@ -33,7 +33,7 @@
                     <div class="pb-3">
                       <select [(ngModel)]="selectedOptionShips" (change)="onOptionSelected($event)" >
                         <option  value="">Start Ships</option>
-                      <option *ngFor="let ships of startShipsList" value="ships.url">{{ships.name}}</option>
+                      <option *ngFor="let ships of startShipsList" value="{{ships.url}}">{{ships.name}}</option>
                     </select>
                     </div>
                     
@@ -42,7 +42,7 @@
                     <div class="pb-3">
                       <select [(ngModel)]="selectedOptionYear" (change)="onOptionSelected($event)" >
                         <option  value="">Birth Year</option>
-                        <option *ngFor="let year of peopelBirtList" value="year.birth_year">{{year.birth_year}}</option>
+                        <option *ngFor="let year of peopelBirtList" value="{{year.birth_year}}">{{year.birth_year}}</option>
                       </select>
                     </div>
                     

@@ -131,10 +131,10 @@ export class HomeComponent {
 
     if(this.selectedOptionMovie || this.selectedOptionSpecies || this.selectedOptionShips || this.selectedOptionVehicle || this.selectedOptionYear){
       this.filteredCharacters = this.charList.filter(character =>
-        character.films.includes(this.selectedOptionMovie) &&
-        character.starships.includes(this.selectedOptionShips) &&
-        character.vehicles.includes(this.selectedOptionVehicle) &&
-        character.species.includes(this.selectedOptionSpecies) &&
+        character.films.includes(this.selectedOptionMovie)||
+        character.starships.includes(this.selectedOptionShips)||
+        character.vehicles.includes(this.selectedOptionVehicle)||
+        character.species.includes(this.selectedOptionSpecies)||
         character.birth_year === this.selectedOptionYear
       );
     }
