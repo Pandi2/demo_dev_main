@@ -3,37 +3,54 @@
         <div class="card">
             <div style="padding: 2%;">
                 <div class="row">
-                    <h6>Filters</h6>
-                    <select [(ngModel)]="selectedOptionMovie" (change)="onOptionSelected($event)">
-                      <option  value="">Movie Name</option>
-                      <option *ngFor="let movie of filmList" value="movie.url">{{movie.title}}</option>
-                    </select>
+                    <h6 style="color: green;">Filters</h6>
+                    <div class="pb-3">
+                      <select [(ngModel)]="selectedOptionMovie" (change)="onOptionSelected($event)">
+                        <option  value="">Movie Name</option>
+                        <option *ngFor="let movie of filmList" value="movie.url">{{movie.title}}</option>
+                      </select>
+                    </div>
+                   
                   </div>
                   <div class="row">
-                    <select [(ngModel)]="selectedOptionSpecies" (change)="onOptionSelected($event)" >
-                      <option  value="">Species</option>
-                      <option *ngFor="let species of speciesList"  value="species.url">{{species.name}}</option>
-                    </select>
+                    <div class="pb-3">
+                      <select [(ngModel)]="selectedOptionSpecies" (change)="onOptionSelected($event)" >
+                        <option  value="">Species</option>
+                        <option *ngFor="let species of speciesList"  value="species.url">{{species.name}}</option>
+                      </select>
+                    </div>
+                    
                   </div>
                   <div class="row">
-                    <select [(ngModel)]="selectedOptionVehicle" (change)="onOptionSelected($event)" >
-                      <option  value="">Vehicle</option>
-                      <option *ngFor="let vehicle of vehicleList" value="vehicle.url">{{vehicle.name}}</option>
-                    </select>
+                    <div class="pb-3">
+                      <select [(ngModel)]="selectedOptionVehicle" (change)="onOptionSelected($event)" >
+                        <option  value="">Vehicle</option>
+                        <option *ngFor="let vehicle of vehicleList" value="vehicle.url">{{vehicle.name}}</option>
+                      </select>
+                    </div>                
                   </div>
                   <div class="row">
-                    <select [(ngModel)]="selectedOptionShips" (change)="onOptionSelected($event)" >
+                    <div class="pb-3">
+                      <select [(ngModel)]="selectedOptionShips" (change)="onOptionSelected($event)" >
                         <option  value="">Start Ships</option>
                       <option *ngFor="let ships of startShipsList" value="ships.url">{{ships.name}}</option>
                     </select>
+                    </div>
+                    
                   </div>
                   <div class="row">
-                    <select [(ngModel)]="selectedOptionYear" (change)="onOptionSelected($event)" >
-                      <option  value="">Birth Year</option>
-                      <option *ngFor="let year of peopelBirtList" value="year.birth_year">{{year.birth_year}}</option>
-                    </select>
+                    <div class="pb-3">
+                      <select [(ngModel)]="selectedOptionYear" (change)="onOptionSelected($event)" >
+                        <option  value="">Birth Year</option>
+                        <option *ngFor="let year of peopelBirtList" value="year.birth_year">{{year.birth_year}}</option>
+                      </select>
+                    </div>
+                    
                   </div>
-                  <button (click)="search()">Search</button>
+                  <div class="pb-3">
+                    <button (click)="search()">Search</button>
+
+                  </div>
 
             </div>
         </div>
@@ -42,6 +59,8 @@
     <div class="col-md-9">
         <div class="card">
             <div style="padding: 2%;">
+              <h6 style="color: green;">Search Results</h6>
+              <small>By Default this table will have all data</small>
                 <table class="table table-bordered">
                     <thead>
                       <tr>
@@ -52,8 +71,8 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr *ngFor="let character_data of charList; index as i">
-                        <th scope="row">{{i+1}}</th>
+                      <tr *ngFor="let character_data of filteredCharacters.length?filteredCharacters:charList; index as i">
+                        <td scope="row">{{i+1}}</td>
                         <td> <a   href="/character/{{  character_data.id }}" [routerLink]="['/character', character_data.id]">{{character_data.name}}</a></td>
                         <td>{{character_data.species_details.name}}</td>
                         <td>{{character_data.birth_year}}</td>
@@ -61,15 +80,15 @@
                       
                     </tbody>
                   </table>
-                  <ngb-pagination
-	[collectionSize]="collection_size"
-	[(page)]="current_page"
-  [pageSize]="pageSize" (pageChange)="loadPage($event)"
-
-  
-	
-	
-/>
+                  <div style="float: right;">
+                    <ngb-pagination
+                    [collectionSize]="collection_size"
+                    [(page)]="current_page"
+                    [pageSize]="pageSize" (pageChange)="loadPage($event)"
+                    
+                  />
+                  </div>
+                  
             </div>
         </div>
     </div>

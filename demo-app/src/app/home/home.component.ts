@@ -24,6 +24,7 @@ export class HomeComponent {
   startShipsList:any[] = []
   speciesList:any[] = []
   peopelBirtList:any[] = []
+  filteredCharacters: any[] = [];
  
 
 
@@ -126,23 +127,21 @@ export class HomeComponent {
 
   search(){
 
-    if(this.selectedOptionMovie){
-        this.charList.filter((element =>{
-          element.forEach((data:any)=> data.url === this.selectedOptionMovie)
-        }))
+    
+
+    if(this.selectedOptionMovie || this.selectedOptionSpecies || this.selectedOptionShips || this.selectedOptionVehicle || this.selectedOptionYear){
+      this.filteredCharacters = this.charList.filter(character =>
+        character.films.includes(this.selectedOptionMovie) &&
+        character.starships.includes(this.selectedOptionShips) &&
+        character.vehicles.includes(this.selectedOptionVehicle) &&
+        character.species.includes(this.selectedOptionSpecies) &&
+        character.birth_year === this.selectedOptionYear
+      );
     }
-    if(this.selectedOptionSpecies){
-      
+    else{
+      this.filteredCharacters = []
     }
-    if(this.selectedOptionVehicle){
-      
-    }
-    if(this.selectedOptionShips){
-      
-    }
-    if(this.selectedOptionYear){
-      
-    }
+    
 
   }
 

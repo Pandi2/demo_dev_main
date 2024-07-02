@@ -46,3 +46,27 @@
     margin-right: .8em;
     border-radius: 4px 0 0 4px;
   }
+
+  select{
+    width: -webkit-fill-available;
+    background: #dddfe2;
+    border: none;
+    padding: 5%;
+    border-radius: 6px;
+  }
+
+  th{
+    background-color: #eeeeee;
+  }
+  td{
+    background-color: #cfcfcf;
+  }
+
+  button{
+    width: -webkit-fill-available;
+    padding: 3%;
+    border-color: green;
+    color: green;
+    background-color: white;
+    border-radius: 10px
+  }
