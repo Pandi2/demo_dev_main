@@ -14,6 +14,18 @@ export class HomeComponent {
   current_page = 1
   pageSize:any = 10
   collection_size:any
+  selectedOptionMovie = ""
+  selectedOptionSpecies= ""
+  selectedOptionVehicle= ""
+  selectedOptionShips= ""
+  selectedOptionYear= ""
+  vehicleList:any[] = []
+  filmList:any[] = []
+  startShipsList:any[] = []
+  speciesList:any[] = []
+  peopelBirtList:any[] = []
+ 
+
 
   constructor(private http: HttpClient,private charservice:CharService) {}
 
@@ -70,6 +82,7 @@ export class HomeComponent {
     this.charList = [];
     this.charservice.getAllCharactors(current_page).subscribe((result:any) =>{
       this.collection_size = result.count
+      this.peopelBirtList = result.results;
       result.results.forEach((people:any)=>{
         people['id'] = people.url.split("/")[5]
           if(people.species.length){
@@ -87,11 +100,50 @@ export class HomeComponent {
           }
       })
     })
+    this.charservice.getfilms('https://swapi.dev/api/films/').subscribe((films:any) =>{
+      this.filmList = films.results
+    })
+    this.charservice.getSpecies('https://swapi.dev/api/species/').subscribe((species:any) =>{
+      this.speciesList = species.results
+    })
+    this.charservice.getVehiclesDetails('https://swapi.dev/api/vehicles/').subscribe((vehicles:any) =>{
+      this.vehicleList = vehicles.results
+    })
+    this.charservice.getStarshipss('https://swapi.dev/api/starships/').subscribe((star:any) =>{
+      this.startShipsList = star.results
+    })
+
   }
 
 
   loadPage(page:number){
     this.getPeope(page)
+  }
+
+  onOptionSelected(event:any){
+
+  }
+
+  search(){
+
+    if(this.selectedOptionMovie){
+        this.charList.filter((element =>{
+          element.forEach((data:any)=> data.url === this.selectedOptionMovie)
+        }))
+    }
+    if(this.selectedOptionSpecies){
+      
+    }
+    if(this.selectedOptionVehicle){
+      
+    }
+    if(this.selectedOptionShips){
+      
+    }
+    if(this.selectedOptionYear){
+      
+    }
+
   }
 
 }

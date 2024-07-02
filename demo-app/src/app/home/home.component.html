@@ -2,20 +2,39 @@
     <div class="col-md-3">
         <div class="card">
             <div style="padding: 2%;">
-                <ul style="padding-left: 0;">
-                    <li style="padding: 1%;">
-                        <a href="tes">123</a>
-                    </li>
-                    <li style="padding: 1%;">
-                        <a href="tes">123</a>
-                    </li>
-                    <li style="padding: 1%;">
-                        <a href="tes">123</a>
-                    </li>
-                    <li style="padding: 1%;">
-                        <a href="tes">123</a>
-                    </li>
-                </ul>
+                <div class="row">
+                    <h6>Filters</h6>
+                    <select [(ngModel)]="selectedOptionMovie" (change)="onOptionSelected($event)">
+                      <option  value="">Movie Name</option>
+                      <option *ngFor="let movie of filmList" value="movie.url">{{movie.title}}</option>
+                    </select>
+                  </div>
+                  <div class="row">
+                    <select [(ngModel)]="selectedOptionSpecies" (change)="onOptionSelected($event)" >
+                      <option  value="">Species</option>
+                      <option *ngFor="let species of speciesList"  value="species.url">{{species.name}}</option>
+                    </select>
+                  </div>
+                  <div class="row">
+                    <select [(ngModel)]="selectedOptionVehicle" (change)="onOptionSelected($event)" >
+                      <option  value="">Vehicle</option>
+                      <option *ngFor="let vehicle of vehicleList" value="vehicle.url">{{vehicle.name}}</option>
+                    </select>
+                  </div>
+                  <div class="row">
+                    <select [(ngModel)]="selectedOptionShips" (change)="onOptionSelected($event)" >
+                        <option  value="">Start Ships</option>
+                      <option *ngFor="let ships of startShipsList" value="ships.url">{{ships.name}}</option>
+                    </select>
+                  </div>
+                  <div class="row">
+                    <select [(ngModel)]="selectedOptionYear" (change)="onOptionSelected($event)" >
+                      <option  value="">Birth Year</option>
+                      <option *ngFor="let year of peopelBirtList" value="year.birth_year">{{year.birth_year}}</option>
+                    </select>
+                  </div>
+                  <button (click)="search()">Search</button>
+
             </div>
         </div>
     </div>
